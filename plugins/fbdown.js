@@ -60,18 +60,18 @@ cmd(
 
       // Prepare and send the message with video details
       let desc = `
-*❤️ ROBIN FB VIDEO DOWNLOADER ❤️*
+*❤️ CYBER FB VIDEO DOWNLOADER ❤️*
 
 👻 *Title*: ${title || "Unknown"}
 👻 *Quality*: ${hd ? "HD Available" : "SD Only"}
 
-𝐌𝐚𝐝𝐞 𝐛𝐲 𝐒_𝐈_𝐇_𝐈_𝐋_𝐄_𝐋
+𝐌𝐚𝐝𝐞 𝐛𝐲 KAVISHKA
         `;
-      await robin.sendMessage(
+      await cyber.sendMessage(
         from,
         {
           image: {
-            url: "https://raw.githubusercontent.com/Dark-Robin/Bot-Helper/refs/heads/main/autoimage/Bot%20fb-1.jpg",
+            url: "https://raw.githubusercontent.com/kavishkad12/CYBER-MD-WABOT/refs/heads/main/CYBER-MD.jpeg",
           },
           caption: desc,
         },
@@ -79,18 +79,18 @@ cmd(
       );
       // Send the video if available
       if (hd) {
-        await robin.sendMessage(
+        await cyber.sendMessage(
           from,
           { video: { url: hd }, caption: "----------HD VIDEO----------" },
           { quoted: mek }
         );
-        await robin.sendMessage(
+        await cyber.sendMessage(
           from,
           { video: { url: sd }, caption: "----------SD VIDEO----------" },
           { quoted: mek }
         );
       } else if (sd) {
-        await robin.sendMessage(
+        await cyber.sendMessage(
           from,
           { video: { url: sd }, caption: "----------SD VIDEO----------" },
           { quoted: mek }
