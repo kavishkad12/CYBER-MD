@@ -3,8 +3,8 @@ const config = require('../config');
 const EnvVar = require('./mongodbenv');
 
 const defaultEnvVariables = [
-    { key: 'ALIVE_IMG', value: 'https://raw.githubusercontent.com/Dark-Robin/Bot-Helper/refs/heads/main/autoimage/Bot%20robin%20iz%20alive.jpg' },
-    { key: 'ALIVE_MSG', value: 'Hello , I am alive now!!\n\n🥶𝐌𝐚𝐝𝐞 𝐛𝐲 𝐒_𝐈_𝐇_𝐈_𝐋_𝐄_𝐋🥶' },
+    { key: 'ALIVE_IMG', value: 'https://raw.githubusercontent.com/kavishkad12/CYBER-MD-WABOT/refs/heads/main/CYBER-MD.jpeg' },
+    { key: 'ALIVE_MSG', value: 'Hello , I am alive now!!\n\n🥶𝐌𝐚𝐝𝐞 𝐛𝐲 KAVISHKA DILSHAN🥶' },
     { key: 'PREFIX', value: '.' },
 ];
 
