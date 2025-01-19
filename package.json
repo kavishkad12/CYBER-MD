@@ -1,12 +1,12 @@
 {
-  "name": "❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️",
-  "version": "1.0.0",
+  "name": "❤️CYBER❤️",
+  "version": "1.0.1",
   "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name ❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️",
-    "stop": "pm2 stop ❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️",
-    "restart": "pm2 restart ❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️"
+    "start": "pm2 start index.js --deep-monitoring --attach --name ❤️CYBER❤️",
+    "stop": "pm2 stop ❤️CYBER❤️",
+    "restart": "pm2 restart ❤️CYBER❤️"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.9",
