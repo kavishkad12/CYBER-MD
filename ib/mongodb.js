@@ -6,6 +6,7 @@ const defaultEnvVariables = [
     { key: 'ALIVE_IMG', value: 'https://raw.githubusercontent.com/kavishkad12/CYBER-MD-WABOT/refs/heads/main/CYBER-MD.jpeg' },
     { key: 'ALIVE_MSG', value: 'Hello , I am alive now!!\n\n🥶𝐌𝐚𝐝𝐞 𝐛𝐲 KAVISHKA DILSHAN🥶' },
     { key: 'PREFIX', value: '.' },
+    { key: 'AUTO_READ_STATUS', value: 'true' },
 ];
 
 // MongoDB connection function
