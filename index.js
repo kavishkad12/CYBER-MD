@@ -61,13 +61,13 @@ async function connectToWA() {
   const prefix = config.PREFIX;
   //===========================
 
-  console.log("Connecting ❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️");
+  console.log("Connecting ❤️C_Y_B_E_R");
   const { state, saveCreds } = await useMultiFileAuthState(
     __dirname + "/auth_info_baileys/"
   );
   var { version } = await fetchLatestBaileysVersion();
 
-  const robin = makeWASocket({
+  const cyber = makeWASocket({
     logger: P({ level: "silent" }),
     printQRInTerminal: false,
     browser: Browsers.macOS("Firefox"),
@@ -76,7 +76,7 @@ async function connectToWA() {
     version,
   });
 
-  robin.ev.on("connection.update", (update) => {
+  cyber.ev.on("connection.update", (update) => {
     const { connection, lastDisconnect } = update;
     if (connection === "close") {
       if (
@@ -92,28 +92,28 @@ async function connectToWA() {
           require("./plugins/" + plugin);
         }
       });
-      console.log("❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️ installed successful ✅");
-      console.log("❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️ connected to whatsapp ✅");
+      console.log("❤️C_Y_B_E_R❤️ installed successful ✅");
+      console.log("❤️C_Y_B_E_R❤️ connected to whatsapp ✅");
 
-      let up = `❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️ connected successful ✅`;
-      let up1 = `Hello Robin, I made bot successful`;
+      let up = `❤️C_Y_B_E_R❤️ connected successful ✅`;
+      let up1 = `Hello Cyber, I made bot successful`;
 
-      robin.sendMessage(ownerNumber + "@s.whatsapp.net", {
+      cyber.sendMessage(ownerNumber + "@s.whatsapp.net", {
         image: {
-          url: `https://raw.githubusercontent.com/Dark-Robin/Bot-Helper/refs/heads/main/autoimage/Bot%20robin%20cs.jpg`,
+          url: `https://raw.githubusercontent.com/kavishkad12/CYBER-MD-WABOT/refs/heads/main/CYBER-MD.jpeg`,
         },
         caption: up,
       });
-      robin.sendMessage("94705900209@s.whatsapp.net", {
+      cyber.sendMessage("94720552487@s.whatsapp.net", {
         image: {
-          url: `https://raw.githubusercontent.com/Dark-Robin/Bot-Helper/refs/heads/main/autoimage/Bot%20robin%20cs.jpg`,
+          url: `https://raw.githubusercontent.com/kavishkad12/CYBER-MD-WABOT/refs/heads/main/CYBER-MD.jpeg`,
         },
         caption: up1,
       });
     }
   });
-  robin.ev.on("creds.update", saveCreds);
-  robin.ev.on("messages.upsert", async (mek) => {
+  cyber.ev.on("creds.update", saveCreds);
+  cyber.ev.on("messages.upsert", async (mek) => {
     mek = mek.messages[0];
     if (!mek.message) return;
     mek.message =
@@ -124,7 +124,7 @@ async function connectToWA() {
       mek.key &&
       mek.key.remoteJid === "status@broadcast") return  
     
-    const m = sms(robin, mek);
+    const m = sms(cyber, mek);
     const type = getContentType(mek.message);
     const content = JSON.stringify(mek.message);
     const from = mek.key.remoteJid;
@@ -151,14 +151,14 @@ async function connectToWA() {
     const q = args.join(" ");
     const isGroup = from.endsWith("@g.us");
     const sender = mek.key.fromMe
-      ? robin.user.id.split(":")[0] + "@s.whatsapp.net" || robin.user.id
+      ? cyber.user.id.split(":")[0] + "@s.whatsapp.net" || cyber.user.id
       : mek.key.participant || mek.key.remoteJid;
     const senderNumber = sender.split("@")[0];
-    const botNumber = robin.user.id.split(":")[0];
+    const botNumber = cyber.user.id.split(":")[0];
     const pushname = mek.pushName || "Sin Nombre";
     const isMe = botNumber.includes(senderNumber);
     const isOwner = ownerNumber.includes(senderNumber) || isMe;
-    const botNumber2 = await jidNormalizedUser(robin.user.id);
+    const botNumber2 = await jidNormalizedUser(cyber.user.id);
     const groupMetadata = isGroup
       ? await robin.groupMetadata(from).catch((e) => {})
       : "";
@@ -169,15 +169,15 @@ async function connectToWA() {
     const isAdmins = isGroup ? groupAdmins.includes(sender) : false;
     const isReact = m.message.reactionMessage ? true : false;
     const reply = (teks) => {
-      robin.sendMessage(from, { text: teks }, { quoted: mek });
+      cyber.sendMessage(from, { text: teks }, { quoted: mek });
     };
 
-    robin.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
+    cyber.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
       let mime = "";
       let res = await axios.head(url);
       mime = res.headers["content-type"];
       if (mime.split("/")[1] === "gif") {
-        return robin.sendMessage(
+        return cyber.sendMessage(
           jid,
           {
             video: await getBuffer(url),
@@ -190,7 +190,7 @@ async function connectToWA() {
       }
       let type = mime.split("/")[0] + "Message";
       if (mime === "application/pdf") {
-        return robin.sendMessage(
+        return cyber.sendMessage(
           jid,
           {
             document: await getBuffer(url),
@@ -202,14 +202,14 @@ async function connectToWA() {
         );
       }
       if (mime.split("/")[0] === "image") {
-        return robin.sendMessage(
+        return cyber.sendMessage(
           jid,
           { image: await getBuffer(url), caption: caption, ...options },
           { quoted: quoted, ...options }
         );
       }
       if (mime.split("/")[0] === "video") {
-        return robin.sendMessage(
+        return cyber.sendMessage(
           jid,
           {
             video: await getBuffer(url),
@@ -221,7 +221,7 @@ async function connectToWA() {
         );
       }
       if (mime.split("/")[0] === "audio") {
-        return robin.sendMessage(
+        return cyber.sendMessage(
           jid,
           {
             audio: await getBuffer(url),
@@ -283,7 +283,7 @@ async function connectToWA() {
     }
     events.commands.map(async (command) => {
       if (body && command.on === "body") {
-        command.function(robin, mek, m, {
+        command.function(cyber, mek, m, {
           from,
           l,
           quoted,
@@ -309,7 +309,7 @@ async function connectToWA() {
           reply,
         });
       } else if (mek.q && command.on === "text") {
-        command.function(robin, mek, m, {
+        command.function(cyber, mek, m, {
           from,
           l,
           quoted,
@@ -338,7 +338,7 @@ async function connectToWA() {
         (command.on === "image" || command.on === "photo") &&
         mek.type === "imageMessage"
       ) {
-        command.function(robin, mek, m, {
+        command.function(cyber, mek, m, {
           from,
           l,
           quoted,
@@ -395,7 +395,7 @@ async function connectToWA() {
   });
 }
 app.get("/", (req, res) => {
-  res.send("hey, ❤️𝐑_𝐎_𝐁_𝐈_𝐍❤️ started✅");
+  res.send("hey, ❤️C_Y_B_E_R❤️ started✅");
 });
 app.listen(port, () =>
   console.log(`Server listening on port http://localhost:${port}`)
