@@ -122,9 +122,12 @@ async function connectToWA() {
         : mek.message;
     if (
       mek.key &&
-      mek.key.remoteJid === "status@broadcast") return  
-    
-    const m = sms(cyber, mek);
+      mek.key.remoteJid === "status@broadcast" &&
+      config.AUTO_READ_STATUS === "true"
+      ) {
+         await.cyber.readeMessages([mek.key]);
+    }
+      const m = sms(cyber, mek);
     const type = getContentType(mek.message);
     const content = JSON.stringify(mek.message);
     const from = mek.key.remoteJid;
