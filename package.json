@@ -1,6 +1,6 @@
 {
-  "name": "❤️CYBER❤️",
-  "version": "1.0.1",
+  "name": "cyber-app",
+  "version": "1.0.0",
   "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
   "scripts": {
